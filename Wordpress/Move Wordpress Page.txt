@@ -1,0 +1,76 @@
+1. Download Backup created with BackWPup (including mySQL backuo file of the DATABASE)
+	1.1 Backup Setting:
+		//DETAILS
+		- Database Backup
+		- File Backup
+		- List of installed Plugins
+		//ARCHIVE FORMAT
+		-Tar GZip
+		//OUTPUT
+		- to Folder (will be stored on FTP where the site is hosted)
+		//EMAIL
+		- workingMailAdress@gmail.com
+		//ERRORS
+		- Send Error Reports
+	1.2 Task Planning
+		//START TASK
+		- with WordPress Cron
+		//TIME OF EXECUTION
+		- Type:Easy
+		- Daily 3am
+	1.3 Database Backup
+		//DATABASE BACKUP SETTINGS
+		- All tables
+		- Default name
+		- No compression
+	1.4 Files
+		//WHAT TO BACKUP 
+		!!EVERYTHING!! except:
+		- Conten -> upgrade
+		- Plugins -> backwpup
+		- Themes -> Default Themes
+		//Special options
+		- Save wp-config,robots.txt...
+	1.5 Plugins
+		//NAME AND COMPRESSION
+			- Default Name
+			- No compression
+	1.6 to: Folder
+		//BACKUP SETTING
+		- Default Path
+		- Keep 8 Files total
+
+2. Create new DATABASE on http://localhost/phpmyadmin
+
+3. Adjust old DATABASE file (the one that was created by the BackWPup Plugin)
+	3.1 Open with Notepad and take Find&Replace to replace the old DATABASE name with the new one
+	(Replace db123456 with localhost) 
+	3.2 Replace Value of "siteurl" with the new domain(Replace http://olddomainname.com with localhost/pathOfYourWordpressInstallationInsideHtdocs
+	3.3 Do the same with the Value of "home"
+
+4. Import DATABASE file via phpmyadmin
+
+5.Configure wp-config like this.
+	- define('DB_NAME', 'NameOfDatabaseCreated in 2.');
+	- define('DB_USER', 'root');
+	- define('DB_PASSWORD', '');
+	- define('DB_HOST', 'localhost');
+	- define('DB_CHARSET', 'utf8');
+	- define('DB_COLLATE', '');
+
+6.Upload/Copy Files of Backup into local development Folder (htdocs/myLocalPage)
+
+7.ONLY FOR LOCAL ! DON'T USE "STEP 7" IN PRODUCTION 
+(http://lawsonry.com/2013/12/solved-wordpress-asking-for-local-ftp-credentials-on-xampp/)
+Change owner of htdocs to gain full control over your files (prevents wordpress from asking for ftp data)
+	7.1 Navigate to xampfiles by "cd /Applications/XAMPP/xamppfiles/"
+	7.2 "sudo chown -R daemon htdocs"
+	7.3 "sudo chmod -R g+w htdocs"
+
+8. Install "Beter Search Replace"
+	8.1 Install Plugin
+	8.2 Find "olddamin.de" replace with "localhost/pathOfYourWordpressInstallationInsideHtdocs"
+
+9. Change Permalinks to default links.
+10. Change hardcoded links and file src paths inside template.
+
