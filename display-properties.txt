@@ -1,0 +1,17 @@
+Quirks concerning display properties
+
+block
++ take up the whole horizontal width of a page.
+
+inline
++ stay inline
++ cant apply height ???
++ cant apply padding/margin ???
+
+
+block-inline
++ behaves like block element concerning styleability 
++ allows alignement like inline elements
++ cares about whitespace in code
+
+
