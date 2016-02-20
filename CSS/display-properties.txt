@@ -14,4 +14,10 @@ block-inline
 + allows alignement like inline elements
 + cares about whitespace in code
 
+flex
++ override floats if flex is available
+
+float
++ make the parent container collaps unless there is content inside (like a content:"some letter" or a clearfix is applied)
+
 
