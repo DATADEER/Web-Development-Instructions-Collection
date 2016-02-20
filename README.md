@@ -4,3 +4,5 @@ This is a collection of text files containing different instructions for repeati
 #Table of contents
 + **Wordpress**
   + How to Move a Wordpress Page
++ **CSS**
+  + Display properties 
